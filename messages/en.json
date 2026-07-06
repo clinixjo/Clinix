@@ -1,0 +1,52 @@
+{
+  "common": {
+    "appName": "Clinics System",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "loading": "Loading…",
+    "language": "Language",
+    "arabic": "العربية",
+    "english": "English",
+    "signOut": "Sign out"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "patients": "Patients",
+    "appointments": "Appointments",
+    "services": "Services",
+    "sales": "Sales",
+    "followups": "Follow-ups",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "roles": {
+    "owner": "Owner",
+    "admin": "Admin",
+    "receptionist": "Receptionist",
+    "practitioner": "Practitioner"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "signInTitle": "Sign in to your account",
+    "signInSubtitle": "Enter your email and password",
+    "signingIn": "Signing in…",
+    "invalidCredentials": "Invalid email or password",
+    "inactiveAccount": "This account is inactive — contact your clinic admin"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome {name}",
+    "yourClinic": "Your clinic",
+    "yourRole": "Your role",
+    "todayAppointments": "Today's appointments",
+    "dueFollowups": "Due follow-ups",
+    "newPatients": "New patients",
+    "monthRevenue": "Month revenue",
+    "comingSoon": "Coming soon"
+  }
+}

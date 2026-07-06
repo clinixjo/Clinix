@@ -1,0 +1,52 @@
+{
+  "common": {
+    "appName": "نظام العيادات",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "search": "بحث",
+    "loading": "جارٍ التحميل…",
+    "language": "اللغة",
+    "arabic": "العربية",
+    "english": "English",
+    "signOut": "تسجيل الخروج"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "patients": "العملاء",
+    "appointments": "المواعيد",
+    "services": "الخدمات",
+    "sales": "المبيعات",
+    "followups": "المتابعات",
+    "reports": "التقارير",
+    "settings": "الإعدادات"
+  },
+  "roles": {
+    "owner": "مالك",
+    "admin": "مدير",
+    "receptionist": "استقبال",
+    "practitioner": "طبيب/ممارس"
+  },
+  "auth": {
+    "signIn": "تسجيل الدخول",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "signInTitle": "تسجيل الدخول إلى حسابك",
+    "signInSubtitle": "أدخل بريدك الإلكتروني وكلمة المرور",
+    "signingIn": "جارٍ تسجيل الدخول…",
+    "invalidCredentials": "بيانات الدخول غير صحيحة",
+    "inactiveAccount": "هذا الحساب غير مفعّل — تواصل مع إدارة العيادة"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "welcome": "أهلًا {name}",
+    "yourClinic": "عيادتك",
+    "yourRole": "دورك",
+    "todayAppointments": "مواعيد اليوم",
+    "dueFollowups": "متابعات مستحقة",
+    "newPatients": "عملاء جدد",
+    "monthRevenue": "إيراد الشهر",
+    "comingSoon": "قريبًا"
+  }
+}
