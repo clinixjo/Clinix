@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 
 export type Profile = {
@@ -22,6 +23,18 @@ export type Profile = {
  * Cached per request.
  */
 export const getProfile = cache(async (): Promise<Profile | null> => {
+  // The profile is per-request — opt into dynamic rendering before any
+  // early return so these routes are never statically prerendered.
+  await cookies();
+
+  // Supabase not configured yet (fresh checkout) — behave as signed out.
+  if (
+    !process.env.NEXT_PUBLIC_SUPABASE_URL ||
+    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  ) {
+    return null;
+  }
+
   const supabase = await createClient();
 
   const {

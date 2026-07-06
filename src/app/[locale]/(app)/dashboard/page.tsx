@@ -1,4 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { redirect } from "next/navigation";
 import { getProfile } from "@/lib/auth";
 import { MetricCard } from "@/components/metric-card";
 import { StatusBadge } from "@/components/status-badge";
@@ -13,7 +14,10 @@ export default async function DashboardPage({
 
   const t = await getTranslations("dashboard");
   const tRoles = await getTranslations("roles");
-  const profile = (await getProfile())!;
+  const profile = await getProfile();
+  if (!profile) {
+    redirect(`/${locale}/login`);
+  }
 
   return (
     <div className="space-y-6">

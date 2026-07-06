@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project State
 
-**Planning phase — no code exists yet.** The repository contains three Arabic planning documents that are the authoritative blueprint. Read the relevant one(s) before building anything:
+**M0 (foundation) built; awaiting Supabase project connection + isolation test pass before M1.** Three Arabic planning documents in `docs/` are the authoritative blueprint. Read the relevant one(s) before building anything:
 
-- `خطة-نظام-عيادات-التجميل.md` — Planning doc: vision, MVP scope, roles & permissions, data model, multi-tenancy, tech stack, legal compliance (Jordanian Data Protection Law No. 24 of 2023).
-- `خطة-التنفيذ-الكاملة-عيادات-التجميل.md` — Master roadmap: milestones M0–M10, each with tasks and a Definition of Done.
-- `نظام-التصميم-عيادات-التجميل.md` — Design system: color tokens, typography, spacing, components, RTL/LTR rules.
+- `docs/خطة-نظام-عيادات-التجميل.md` — Planning doc: vision, MVP scope, roles & permissions, data model, multi-tenancy, tech stack, legal compliance (Jordanian Data Protection Law No. 24 of 2023).
+- `docs/خطة-التنفيذ-الكاملة-عيادات-التجميل.md` — Master roadmap: milestones M0–M10, each with tasks and a Definition of Done.
+- `docs/نظام-التصميم-عيادات-التجميل.md` — Design system: color tokens, typography, spacing, components, RTL/LTR rules.
 
 ## What Is Being Built
 
@@ -64,4 +64,14 @@ Full details in the design system doc; the essentials:
 
 ## Commands
 
-No project scaffolding exists yet. Once M0 lands (Next.js app), standard commands will apply (`npm run dev`, `npm run build`, `npm run lint`, test runner TBD) — **update this section when the scaffold is created.**
+- `npm run dev` — dev server; `npm run build` — production build; `npm run lint` — ESLint
+- `npm test` — vitest; `npm run test:isolation` — tenant isolation test (needs `.env.local` with a real Supabase project; self-skips otherwise). **Must pass before feature milestones proceed.**
+- `npm run seed:dev` — create demo clinic + owner for local sign-in
+
+## Code Layout & Conventions
+
+- `supabase/migrations/` — schema + RLS. Medical notes live in the separate `patient_medical_notes` table (RLS is row-level, not column-level — this is how the role restriction is actually enforced). RLS helpers: `current_clinic_id()`, `current_user_role()`, `can_edit_records()`, `practitioner_can_edit()`.
+- `src/app/[locale]/` — all routes are locale-prefixed (`ar` default, `en`); `(app)/` route group is auth-guarded via `getProfile()` in its layout. `src/proxy.ts` (Next 16 proxy convention) chains next-intl routing + Supabase session refresh.
+- `src/i18n/` + `messages/{ar,en}.json` — every UI string goes in both message files.
+- `src/lib/supabase/` — `client.ts` (browser), `server.ts` (RSC/actions), `middleware.ts` (session refresh). `src/lib/auth.ts` → `getProfile()` returns role + clinic (cached per request; returns null when Supabase env vars are absent so the app degrades to signed-out).
+- `src/components/` — shared design-system components (`StatusBadge`, `MetricCard`, `UserAvatar`, `ListRow`, `AppShell`); `src/components/ui/` is shadcn (radix-nova preset, RTL enabled). Design tokens are CSS variables in `src/app/globals.css` (`brand-*`, semantic `success/warning/danger/info/neutral-status` with `-bg`/`-fg` pairs, `surface-*`).
