@@ -191,6 +191,64 @@
       "confirm": "نعم، احذف"
     }
   },
+  "appointments": {
+    "title": "المواعيد",
+    "book": "حجز موعد",
+    "today": "اليوم",
+    "day": "يوم",
+    "week": "أسبوع",
+    "prev": "السابق",
+    "next": "التالي",
+    "emptyDay": "لا مواعيد في هذا اليوم",
+    "emptyWeek": "لا مواعيد هذا الأسبوع",
+    "viewOnlyHint": "العرض فقط — حجز المواعيد متاح لفريق العيادة المخوّل.",
+    "unassigned": "بلا طبيب محدّد",
+    "count": "{count, plural, zero {لا مواعيد} one {موعد واحد} two {موعدان} few {# مواعيد} many {# موعدًا} other {# موعد}}",
+    "statuses": {
+      "scheduled": "مجدول",
+      "confirmed": "مؤكد",
+      "completed": "مكتمل",
+      "no_show": "لم يحضر",
+      "cancelled": "ملغى"
+    },
+    "actions": {
+      "confirm": "تأكيد",
+      "complete": "إكمال",
+      "markNoShow": "تسجيل غياب",
+      "cancel": "إلغاء الموعد",
+      "changeStatus": "تغيير الحالة"
+    },
+    "fields": {
+      "patient": "العميل",
+      "service": "الخدمة",
+      "practitioner": "الطبيب",
+      "anyPractitioner": "بلا طبيب محدّد",
+      "date": "التاريخ",
+      "time": "الوقت",
+      "durationMin": "المدة (بالدقائق)",
+      "notes": "ملاحظات",
+      "timeRange": "{start} – {end}"
+    },
+    "form": {
+      "bookTitle": "حجز موعد جديد",
+      "editTitle": "تعديل الموعد",
+      "selectPatient": "اختر عميلًا…",
+      "selectService": "اختر خدمة…",
+      "selectPractitioner": "اختر طبيبًا…",
+      "patientRequired": "اختيار العميل مطلوب",
+      "serviceRequired": "اختيار الخدمة مطلوب",
+      "dateTimeRequired": "حدّد التاريخ والوقت",
+      "timeConflict": "هذا الطبيب لديه موعد آخر في نفس الوقت — اختر وقتًا أو طبيبًا آخر.",
+      "saveFailed": "تعذّر الحفظ — حاول مرة أخرى",
+      "durationHint": "تُحسب نهاية الموعد تلقائيًا من مدة الخدمة."
+    },
+    "delete": {
+      "action": "حذف الموعد",
+      "confirmTitle": "حذف هذا الموعد؟",
+      "confirmText": "سيُحذف موعد {patient}. لا يمكن التراجع.",
+      "confirm": "نعم، احذف"
+    }
+  },
   "dashboard": {
     "title": "لوحة التحكم",
     "welcome": "أهلًا {name}",

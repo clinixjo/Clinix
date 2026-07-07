@@ -191,6 +191,64 @@
       "confirm": "Yes, delete"
     }
   },
+  "appointments": {
+    "title": "Appointments",
+    "book": "Book appointment",
+    "today": "Today",
+    "day": "Day",
+    "week": "Week",
+    "prev": "Previous",
+    "next": "Next",
+    "emptyDay": "No appointments on this day",
+    "emptyWeek": "No appointments this week",
+    "viewOnlyHint": "View only — booking is available to authorized clinic staff.",
+    "unassigned": "No practitioner assigned",
+    "count": "{count, plural, one {# appointment} other {# appointments}}",
+    "statuses": {
+      "scheduled": "Scheduled",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "no_show": "No-show",
+      "cancelled": "Cancelled"
+    },
+    "actions": {
+      "confirm": "Confirm",
+      "complete": "Complete",
+      "markNoShow": "Mark no-show",
+      "cancel": "Cancel appointment",
+      "changeStatus": "Change status"
+    },
+    "fields": {
+      "patient": "Patient",
+      "service": "Service",
+      "practitioner": "Practitioner",
+      "anyPractitioner": "No practitioner assigned",
+      "date": "Date",
+      "time": "Time",
+      "durationMin": "Duration (minutes)",
+      "notes": "Notes",
+      "timeRange": "{start} – {end}"
+    },
+    "form": {
+      "bookTitle": "Book a new appointment",
+      "editTitle": "Edit appointment",
+      "selectPatient": "Select a patient…",
+      "selectService": "Select a service…",
+      "selectPractitioner": "Select a practitioner…",
+      "patientRequired": "Patient is required",
+      "serviceRequired": "Service is required",
+      "dateTimeRequired": "Set the date and time",
+      "timeConflict": "This practitioner already has an appointment at that time — pick another time or practitioner.",
+      "saveFailed": "Could not save — please try again",
+      "durationHint": "The appointment's end time is computed from the service duration."
+    },
+    "delete": {
+      "action": "Delete appointment",
+      "confirmTitle": "Delete this appointment?",
+      "confirmText": "{patient}'s appointment will be deleted. This cannot be undone.",
+      "confirm": "Yes, delete"
+    }
+  },
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Welcome {name}",
