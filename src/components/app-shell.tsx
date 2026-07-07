@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   LogOut,
   Menu,
+  Package as PackageIcon,
   Receipt,
   Settings,
   Sparkles,
@@ -35,7 +36,7 @@ export type ShellProfile = {
 };
 
 type NavItem = {
-  key: "dashboard" | "patients" | "appointments" | "services" | "sales" | "followups" | "reports" | "settings";
+  key: "dashboard" | "patients" | "appointments" | "services" | "packages" | "sales" | "followups" | "reports" | "settings";
   href: string;
   icon: React.ComponentType<{ className?: string }>;
   visible: (p: ShellProfile) => boolean;
@@ -48,6 +49,7 @@ const navItems: NavItem[] = [
   { key: "patients", href: "/patients", icon: Users, visible: () => true },
   { key: "appointments", href: "/appointments", icon: Calendar, visible: () => true },
   { key: "services", href: "/services", icon: Sparkles, visible: () => true },
+  { key: "packages", href: "/packages", icon: PackageIcon, visible: () => true },
   { key: "sales", href: "/sales", icon: Receipt, visible: (p) => p.canSeeSales },
   { key: "followups", href: "/followups", icon: BellRing, visible: () => true },
   { key: "reports", href: "/reports", icon: BarChart3, visible: (p) => managerRoles.has(p.role) },

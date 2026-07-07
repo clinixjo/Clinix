@@ -17,6 +17,7 @@
     "patients": "Patients",
     "appointments": "Appointments",
     "services": "Services",
+    "packages": "Packages",
     "sales": "Sales",
     "followups": "Follow-ups",
     "reports": "Reports",
@@ -106,6 +107,88 @@
       "deleteConfirmText": "{name}'s file and all related data (visits, appointments, notes) will be deleted. This cannot be undone.",
       "deleteConfirm": "Yes, delete",
       "backToList": "Back to patients"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "addService": "Add service",
+    "count": "{count, plural, one {# service} other {# services}}",
+    "emptyTitle": "No services yet",
+    "emptyHint": "Define your clinic's services and prices to start booking and selling.",
+    "viewOnlyHint": "View only — editing services is available to owners and admins.",
+    "active": "Active",
+    "inactive": "Inactive",
+    "noFollowup": "No follow-up",
+    "fields": {
+      "name": "Service name",
+      "description": "Description",
+      "category": "Category",
+      "durationMin": "Duration (minutes)",
+      "price": "Price",
+      "taxRate": "Tax rate (%)",
+      "followupIntervalDays": "Follow-up interval (days)",
+      "followupHint": "After how many days should the patient return? (e.g. filler 270 days)",
+      "isActive": "Service is active",
+      "minutesValue": "{count} min",
+      "daysValue": "{count} days"
+    },
+    "form": {
+      "createTitle": "Add new service",
+      "editTitle": "Edit service",
+      "nameRequired": "Service name is required",
+      "priceInvalid": "Enter a valid price",
+      "saveFailed": "Could not save — please try again"
+    },
+    "delete": {
+      "action": "Delete service",
+      "confirmTitle": "Delete this service?",
+      "confirmText": "\"{name}\" will be removed from the service catalog. This cannot be undone.",
+      "confirm": "Yes, delete"
+    }
+  },
+  "packages": {
+    "title": "Packages",
+    "addPackage": "Add package",
+    "count": "{count, plural, one {# package} other {# packages}}",
+    "emptyTitle": "No packages yet",
+    "emptyHint": "Bundle several services into a package at a special price.",
+    "viewOnlyHint": "View only — editing packages is available to owners and admins.",
+    "active": "Active",
+    "inactive": "Inactive",
+    "fields": {
+      "name": "Package name",
+      "description": "Description",
+      "price": "Package price",
+      "isActive": "Package is active"
+    },
+    "items": {
+      "title": "Package services",
+      "service": "Service",
+      "quantity": "Qty",
+      "addItem": "Add service",
+      "remove": "Remove",
+      "empty": "Add at least one service to the package",
+      "selectService": "Select a service…"
+    },
+    "summary": {
+      "totalValue": "Total value",
+      "packagePrice": "Package price",
+      "savings": "Savings",
+      "itemsCount": "{count, plural, one {# service} other {# services}}"
+    },
+    "form": {
+      "createTitle": "Add new package",
+      "editTitle": "Edit package",
+      "nameRequired": "Package name is required",
+      "itemsRequired": "Add at least one service",
+      "priceInvalid": "Enter a valid price",
+      "saveFailed": "Could not save — please try again"
+    },
+    "delete": {
+      "action": "Delete package",
+      "confirmTitle": "Delete this package?",
+      "confirmText": "\"{name}\" will be removed. This cannot be undone.",
+      "confirm": "Yes, delete"
     }
   },
   "dashboard": {

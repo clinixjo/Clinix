@@ -17,6 +17,7 @@
     "patients": "العملاء",
     "appointments": "المواعيد",
     "services": "الخدمات",
+    "packages": "الباقات",
     "sales": "المبيعات",
     "followups": "المتابعات",
     "reports": "التقارير",
@@ -106,6 +107,88 @@
       "deleteConfirmText": "سيُحذف ملف {name} وكل بياناته (الزيارات، المواعيد، الملاحظات). لا يمكن التراجع عن هذا الإجراء.",
       "deleteConfirm": "نعم، احذف",
       "backToList": "العودة إلى العملاء"
+    }
+  },
+  "services": {
+    "title": "الخدمات",
+    "addService": "إضافة خدمة",
+    "count": "{count, plural, zero {لا خدمات} one {خدمة واحدة} two {خدمتان} few {# خدمات} many {# خدمةً} other {# خدمة}}",
+    "emptyTitle": "لا توجد خدمات بعد",
+    "emptyHint": "عرّف خدمات عيادتك وأسعارها لتبدأ الحجز والبيع.",
+    "viewOnlyHint": "العرض فقط — تعديل الخدمات متاح للمالك والمدير.",
+    "active": "مفعّلة",
+    "inactive": "غير مفعّلة",
+    "noFollowup": "بلا متابعة",
+    "fields": {
+      "name": "اسم الخدمة",
+      "description": "الوصف",
+      "category": "الفئة",
+      "durationMin": "المدة (بالدقائق)",
+      "price": "السعر",
+      "taxRate": "نسبة الضريبة (%)",
+      "followupIntervalDays": "فترة المتابعة (بالأيام)",
+      "followupHint": "بعد كم يوم يُنصح العميل بالعودة؟ (مثلاً الفيلر ٢٧٠ يومًا)",
+      "isActive": "الخدمة مفعّلة",
+      "minutesValue": "{count} دقيقة",
+      "daysValue": "{count} يوم"
+    },
+    "form": {
+      "createTitle": "إضافة خدمة جديدة",
+      "editTitle": "تعديل الخدمة",
+      "nameRequired": "اسم الخدمة مطلوب",
+      "priceInvalid": "أدخل سعرًا صحيحًا",
+      "saveFailed": "تعذّر الحفظ — حاول مرة أخرى"
+    },
+    "delete": {
+      "action": "حذف الخدمة",
+      "confirmTitle": "حذف هذه الخدمة؟",
+      "confirmText": "سيُحذف \"{name}\" من كتالوج الخدمات. لا يمكن التراجع.",
+      "confirm": "نعم، احذف"
+    }
+  },
+  "packages": {
+    "title": "الباقات",
+    "addPackage": "إضافة باقة",
+    "count": "{count, plural, zero {لا باقات} one {باقة واحدة} two {باقتان} few {# باقات} many {# باقةً} other {# باقة}}",
+    "emptyTitle": "لا توجد باقات بعد",
+    "emptyHint": "جمّع عدة خدمات في باقة بسعر مميّز.",
+    "viewOnlyHint": "العرض فقط — تعديل الباقات متاح للمالك والمدير.",
+    "active": "مفعّلة",
+    "inactive": "غير مفعّلة",
+    "fields": {
+      "name": "اسم الباقة",
+      "description": "الوصف",
+      "price": "سعر الباقة",
+      "isActive": "الباقة مفعّلة"
+    },
+    "items": {
+      "title": "خدمات الباقة",
+      "service": "الخدمة",
+      "quantity": "الكمية",
+      "addItem": "إضافة خدمة",
+      "remove": "إزالة",
+      "empty": "أضف خدمة واحدة على الأقل إلى الباقة",
+      "selectService": "اختر خدمة…"
+    },
+    "summary": {
+      "totalValue": "القيمة الإجمالية",
+      "packagePrice": "سعر الباقة",
+      "savings": "التوفير",
+      "itemsCount": "{count, plural, zero {لا خدمات} one {خدمة واحدة} other {# خدمات}}"
+    },
+    "form": {
+      "createTitle": "إضافة باقة جديدة",
+      "editTitle": "تعديل الباقة",
+      "nameRequired": "اسم الباقة مطلوب",
+      "itemsRequired": "أضف خدمة واحدة على الأقل",
+      "priceInvalid": "أدخل سعرًا صحيحًا",
+      "saveFailed": "تعذّر الحفظ — حاول مرة أخرى"
+    },
+    "delete": {
+      "action": "حذف الباقة",
+      "confirmTitle": "حذف هذه الباقة؟",
+      "confirmText": "ستُحذف \"{name}\". لا يمكن التراجع.",
+      "confirm": "نعم، احذف"
     }
   },
   "dashboard": {
