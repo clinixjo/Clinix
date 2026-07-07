@@ -249,6 +249,88 @@
       "confirm": "نعم، احذف"
     }
   },
+  "sales": {
+    "title": "المبيعات",
+    "newSale": "فاتورة جديدة",
+    "createInvoice": "إنشاء فاتورة",
+    "count": "{count, plural, zero {لا فواتير} one {فاتورة واحدة} two {فاتورتان} few {# فواتير} many {# فاتورةً} other {# فاتورة}}",
+    "emptyTitle": "لا فواتير بعد",
+    "emptyHint": "سجّل أول عملية بيع لتبدأ تتبّع إيرادات العيادة.",
+    "viewOnlyHint": "العرض فقط — تسجيل المبيعات متاح لفريق العيادة المخوّل.",
+    "statuses": {
+      "paid": "مدفوعة",
+      "partial": "مدفوعة جزئيًا",
+      "unpaid": "غير مدفوعة",
+      "refunded": "مُستردّة"
+    },
+    "payment": {
+      "label": "طريقة الدفع",
+      "cash": "نقدًا",
+      "cashHint": "دفع نقدي في العيادة",
+      "card": "بطاقة",
+      "cardHint": "بطاقة ائتمان أو مدى",
+      "transfer": "تحويل",
+      "transferHint": "تحويل بنكي أو محفظة إلكترونية",
+      "coveredTitle": "مغطّاة بالكامل بالباقة",
+      "coveredHint": "لا حاجة لدفع — الجلسات مخصومة من رصيد الباقة."
+    },
+    "checkout": {
+      "title": "إتمام الفاتورة",
+      "patient": "العميل",
+      "selectPatient": "اختر عميلًا…",
+      "items": "بنود الفاتورة",
+      "addService": "إضافة خدمة",
+      "redeemSession": "خصم جلسة من باقة",
+      "sellPackage": "بيع باقة",
+      "service": "الخدمة",
+      "package": "الباقة",
+      "practitioner": "الطبيب",
+      "unitPrice": "السعر",
+      "quantity": "الكمية",
+      "lineTotal": "الإجمالي",
+      "remove": "إزالة",
+      "selectService": "اختر خدمة…",
+      "selectPackage": "اختر باقة…",
+      "selectPatientFirst": "اختر العميل أولًا لعرض باقاته",
+      "coveredByPackage": "مغطّاة بالباقة",
+      "sessionsRemaining": "{count} جلسة متبقية",
+      "noActivePackages": "لا باقات نشطة لهذا العميل",
+      "subtotal": "المجموع الفرعي",
+      "grandTotal": "الإجمالي المستحق",
+      "record": "تسجيل الدفع",
+      "recording": "جارٍ التسجيل…",
+      "emptyItems": "أضف بندًا واحدًا على الأقل"
+    },
+    "invoice": {
+      "title": "فاتورة",
+      "number": "رقم الفاتورة",
+      "billedTo": "فاتورة إلى",
+      "issuedOn": "بتاريخ",
+      "servedBy": "بواسطة",
+      "item": "البند",
+      "qty": "الكمية",
+      "unitPrice": "السعر",
+      "amount": "المبلغ",
+      "total": "الإجمالي",
+      "paidWith": "طريقة الدفع",
+      "covered": "مغطّاة بالباقة",
+      "thankYou": "شكرًا لثقتكم بنا 🌿",
+      "backToSales": "العودة إلى المبيعات"
+    },
+    "errors": {
+      "patientRequired": "اختيار العميل مطلوب",
+      "itemsRequired": "أضف بندًا واحدًا على الأقل",
+      "paymentRequired": "اختر طريقة الدفع",
+      "insufficientSessions": "لا توجد جلسات كافية في الباقة",
+      "saveFailed": "تعذّر تسجيل الدفع — حاول مرة أخرى"
+    },
+    "delete": {
+      "action": "حذف الفاتورة",
+      "confirmTitle": "حذف هذه الفاتورة؟",
+      "confirmText": "ستُحذف فاتورة {patient}. لا يمكن التراجع.",
+      "confirm": "نعم، احذف"
+    }
+  },
   "dashboard": {
     "title": "لوحة التحكم",
     "welcome": "أهلًا {name}",

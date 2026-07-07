@@ -249,6 +249,88 @@
       "confirm": "Yes, delete"
     }
   },
+  "sales": {
+    "title": "Sales",
+    "newSale": "New invoice",
+    "createInvoice": "Create invoice",
+    "count": "{count, plural, one {# invoice} other {# invoices}}",
+    "emptyTitle": "No invoices yet",
+    "emptyHint": "Record your first sale to start tracking clinic revenue.",
+    "viewOnlyHint": "View only — recording sales is available to authorized clinic staff.",
+    "statuses": {
+      "paid": "Paid",
+      "partial": "Partially paid",
+      "unpaid": "Unpaid",
+      "refunded": "Refunded"
+    },
+    "payment": {
+      "label": "Payment method",
+      "cash": "Cash",
+      "cashHint": "Paid in cash at the clinic",
+      "card": "Card",
+      "cardHint": "Credit or debit card",
+      "transfer": "Transfer",
+      "transferHint": "Bank transfer or e-wallet",
+      "coveredTitle": "Fully covered by package",
+      "coveredHint": "No payment needed — sessions are drawn from the package balance."
+    },
+    "checkout": {
+      "title": "Checkout",
+      "patient": "Patient",
+      "selectPatient": "Select a patient…",
+      "items": "Invoice items",
+      "addService": "Add service",
+      "redeemSession": "Redeem package session",
+      "sellPackage": "Sell a package",
+      "service": "Service",
+      "package": "Package",
+      "practitioner": "Practitioner",
+      "unitPrice": "Price",
+      "quantity": "Qty",
+      "lineTotal": "Total",
+      "remove": "Remove",
+      "selectService": "Select a service…",
+      "selectPackage": "Select a package…",
+      "selectPatientFirst": "Select the patient first to see their packages",
+      "coveredByPackage": "Covered by package",
+      "sessionsRemaining": "{count} sessions left",
+      "noActivePackages": "No active packages for this patient",
+      "subtotal": "Subtotal",
+      "grandTotal": "Amount due",
+      "record": "Record payment",
+      "recording": "Recording…",
+      "emptyItems": "Add at least one item"
+    },
+    "invoice": {
+      "title": "Invoice",
+      "number": "Invoice no.",
+      "billedTo": "Billed to",
+      "issuedOn": "Issued on",
+      "servedBy": "Served by",
+      "item": "Item",
+      "qty": "Qty",
+      "unitPrice": "Price",
+      "amount": "Amount",
+      "total": "Total",
+      "paidWith": "Payment method",
+      "covered": "Covered by package",
+      "thankYou": "Thank you for trusting us 🌿",
+      "backToSales": "Back to sales"
+    },
+    "errors": {
+      "patientRequired": "Patient is required",
+      "itemsRequired": "Add at least one item",
+      "paymentRequired": "Choose a payment method",
+      "insufficientSessions": "Not enough sessions left in the package",
+      "saveFailed": "Could not record payment — please try again"
+    },
+    "delete": {
+      "action": "Delete invoice",
+      "confirmTitle": "Delete this invoice?",
+      "confirmText": "{patient}'s invoice will be deleted. This cannot be undone.",
+      "confirm": "Yes, delete"
+    }
+  },
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Welcome {name}",

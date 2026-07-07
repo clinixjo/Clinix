@@ -1,6 +1,6 @@
 import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound, redirect } from "next/navigation";
-import { ArrowLeft, ArrowRight, Pencil, ShieldCheck, ShieldAlert, Stethoscope } from "lucide-react";
+import { ArrowLeft, ArrowRight, Pencil, Receipt, ShieldCheck, ShieldAlert, Stethoscope } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { dirFor } from "@/i18n/routing";
 import { getProfile } from "@/lib/auth";
@@ -12,6 +12,7 @@ import {
   getVisits,
 } from "@/lib/patients";
 import { isKnownSource } from "@/lib/patient-sources";
+import { canRecordSales } from "@/lib/sales";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -41,9 +42,11 @@ export default async function PatientProfilePage({
   if (!patient) notFound();
 
   const t = await getTranslations("patients");
+  const tSales = await getTranslations("sales");
   const format = await getFormatter();
   const showMedical = canAccessMedicalNotes(profile.role);
   const isManager = profile.role === "owner" || profile.role === "admin";
+  const showInvoice = canRecordSales(profile);
 
   const [visits, medicalNotes] = await Promise.all([
     getVisits(patient.id),
@@ -106,6 +109,14 @@ export default async function PatientProfilePage({
           )}
         </div>
         <div className="flex shrink-0 items-center gap-2">
+          {showInvoice ? (
+            <Button size="sm" asChild>
+              <Link href={`/sales/new?patient=${patient.id}`}>
+                <Receipt className="size-4" />
+                {tSales("createInvoice")}
+              </Link>
+            </Button>
+          ) : null}
           <Button variant="secondary" size="sm" asChild>
             <Link href={`/patients/${patient.id}/edit`}>
               <Pencil className="size-4" />
