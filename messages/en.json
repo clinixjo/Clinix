@@ -331,6 +331,36 @@
       "confirm": "Yes, delete"
     }
   },
+  "followups": {
+    "title": "Due for Contact Today",
+    "subtitle": "Patients it's time to reach out to — a graceful message, one click away.",
+    "dueSection": "Follow-ups due",
+    "packageSection": "Package reminders",
+    "emptyDue": "No follow-ups due today — beautifully done! 🌿",
+    "emptyPackages": "No packages need a reminder right now",
+    "dueCount": "{count, plural, one {# follow-up} other {# follow-ups}}",
+    "reasons": {
+      "service": "Recommended follow-up after {service}",
+      "package": "Sessions remaining in {package}"
+    },
+    "due": {
+      "today": "Due today",
+      "overdue": "{count, plural, one {# day} other {# days}} overdue",
+      "sessionsRemaining": "{count, plural, one {# session left} other {# sessions left}}"
+    },
+    "actions": {
+      "sendWhatsapp": "Send WhatsApp",
+      "resend": "Resend",
+      "booked": "Booked",
+      "dismiss": "Dismiss",
+      "contacted": "Contacted",
+      "noContact": "No WhatsApp number"
+    },
+    "templates": {
+      "service": "Hello {name} 🌿\nWe hope you're keeping well. It's been a little while since your last {service} visit at {clinic}, and we'd love to welcome you back for a follow-up to keep your results at their best.\nWhenever suits you, we'd be delighted to arrange your appointment. 💐",
+      "package": "Hello {name} 🌿\nA gentle reminder that you have {count} sessions remaining in your package at {clinic}. We'd be delighted to schedule your next session at a time that suits you. 💐"
+    }
+  },
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Welcome {name}",
