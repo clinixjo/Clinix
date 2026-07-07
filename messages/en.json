@@ -38,6 +38,76 @@
     "invalidCredentials": "Invalid email or password",
     "inactiveAccount": "This account is inactive — contact your clinic admin"
   },
+  "patients": {
+    "title": "Patients",
+    "addPatient": "Add patient",
+    "searchPlaceholder": "Search by name or phone…",
+    "emptyTitle": "No patients yet",
+    "emptyHint": "Start building your patient base — add your first patient.",
+    "noResults": "No results matching \"{query}\"",
+    "count": "{count, plural, one {# patient} other {# patients}}",
+    "fields": {
+      "name": "Name",
+      "dob": "Date of birth",
+      "age": "Age",
+      "ageValue": "{age} yrs",
+      "gender": "Gender",
+      "female": "Female",
+      "male": "Male",
+      "whatsapp": "WhatsApp number",
+      "phone": "Phone number",
+      "email": "Email (optional)",
+      "source": "Patient source",
+      "sourceHint": "How did they find the clinic? Guides your marketing",
+      "notes": "General notes",
+      "medicalNotes": "Medical notes",
+      "optional": "Optional"
+    },
+    "sources": {
+      "instagram": "Instagram",
+      "facebook": "Facebook",
+      "tiktok": "TikTok",
+      "google": "Google search",
+      "friend": "Friend/patient referral",
+      "walk_in": "Walk-in",
+      "other": "Other"
+    },
+    "form": {
+      "createTitle": "Add new patient",
+      "editTitle": "Edit patient details",
+      "selectPlaceholder": "Select…",
+      "initialMedicalNote": "First medical note (optional)",
+      "nameRequired": "Name is required",
+      "consentRequired": "A patient file cannot be created without consent",
+      "contactRequired": "Enter at least a WhatsApp or phone number",
+      "saveFailed": "Could not save — please try again"
+    },
+    "consent": {
+      "title": "Data processing consent",
+      "text": "I consent to the clinic collecting and processing the personal and health data in this form for the purpose of providing clinic services, managing appointments, and contacting me about them. I acknowledge that the data is stored and processed on secure servers outside the Hashemite Kingdom of Jordan, and that I have the right to request correction or deletion of my data at any time.",
+      "checkboxLabel": "I obtained the patient's explicit consent to the above",
+      "consentedOn": "Consented to data processing on {date}",
+      "noConsent": "No consent recorded"
+    },
+    "profile": {
+      "details": "Patient details",
+      "visitsTitle": "Visit history",
+      "visitsEmpty": "No visits yet — visits appear here once appointments are completed",
+      "medicalNotesTitle": "Medical notes",
+      "medicalNotesEmpty": "No medical notes yet",
+      "medicalNotesRestricted": "Medical notes are available to the practitioner and owner only",
+      "addNotePlaceholder": "Add a medical note…",
+      "addNote": "Add note",
+      "noteBy": "By {name}",
+      "addedOn": "Added on {date}",
+      "notFound": "Patient not found",
+      "deletePatient": "Delete patient",
+      "deleteConfirmTitle": "Permanently delete this patient?",
+      "deleteConfirmText": "{name}'s file and all related data (visits, appointments, notes) will be deleted. This cannot be undone.",
+      "deleteConfirm": "Yes, delete",
+      "backToList": "Back to patients"
+    }
+  },
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Welcome {name}",
