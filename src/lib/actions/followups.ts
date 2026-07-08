@@ -4,6 +4,12 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/auth";
 
+// Note: logging a contact intentionally does NOT revalidate the page —
+// the button keeps its optimistic green "Contacted" state for the rest
+// of the session, and the item only leaves the due list on the next
+// load (the follow-up is now status='contacted'). This preserves the
+// satisfying flip while still preventing cross-day double-messaging.
+
 export type ContactResult = { ok: boolean };
 
 /**
@@ -37,7 +43,6 @@ export async function logFollowupContact(
     .update({ status: "contacted" })
     .eq("id", followupId);
 
-  revalidatePath("/[locale]/followups", "page");
   return { ok: true };
 }
 
