@@ -361,6 +361,54 @@
       "package": "مرحبًا {name} 🌿\nنودّ تذكيركم بأنّ لديكم {count} جلسة متبقية ضمن باقتكم في {clinic}. يسعدنا حجز جلستكم القادمة في الوقت الذي يناسبكم للاستفادة الكاملة من باقتكم. 💐"
     }
   },
+  "reports": {
+    "title": "التقارير",
+    "subtitle": "أداء عيادتك بنظرة واحدة — الإيراد، العودة، والقنوات التي تجلب عملاءك.",
+    "periods": {
+      "30d": "٣٠ يومًا",
+      "90d": "٩٠ يومًا",
+      "12m": "١٢ شهرًا"
+    },
+    "kpis": {
+      "revenue": "إجمالي الإيراد",
+      "vsPrev": "{value} مقارنة بالفترة السابقة",
+      "noShowRate": "نسبة الغياب",
+      "noShowHint": "{noShow} غياب من {total} موعد منتهٍ",
+      "newPatients": "عملاء جدد",
+      "returningRate": "نسبة العودة",
+      "returningHint": "{returning} عائد و{fresh} جديد بين زوّار الفترة",
+      "noData": "لا بيانات في هذه الفترة"
+    },
+    "charts": {
+      "revenueTrend": "الإيراد الشهري (آخر ١٢ شهرًا)",
+      "topServices": "أعلى الخدمات إيرادًا",
+      "revenue": "الإيراد",
+      "volume": "عدد الجلسات",
+      "volumeShort": "{count} جلسة"
+    },
+    "sources": {
+      "title": "مصادر العملاء",
+      "empty": "لا عملاء جدد في هذه الفترة",
+      "unknown": "غير محدد"
+    },
+    "practitioners": {
+      "title": "أداء الأطباء",
+      "items": "{count, plural, one {جلسة واحدة} two {جلستان} few {# جلسات} other {# جلسة}}",
+      "empty": "لا مبيعات مسندة لأطباء في هذه الفترة"
+    },
+    "lifecycle": {
+      "title": "صحة دورة العلاج",
+      "funnel": "متابعات الفترة",
+      "pending": "بانتظار التواصل",
+      "contacted": "تم التواصل",
+      "booked": "تحوّلت لحجز",
+      "dismissed": "متجاهلة",
+      "conversion": "نسبة التحويل بعد التواصل",
+      "activePackages": "باقات نشطة",
+      "outstandingSessions": "جلسات متبقية للعملاء",
+      "messagesSent": "رسائل أُرسلت"
+    }
+  },
   "dashboard": {
     "title": "لوحة التحكم",
     "welcome": "أهلًا {name}",

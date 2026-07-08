@@ -1,6 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { redirect } from "next/navigation";
+import { Link } from "@/i18n/navigation";
 import { getProfile } from "@/lib/auth";
+import { getDashboardCounts } from "@/lib/dashboard";
+import { canRecordSales } from "@/lib/sales";
+import { formatCurrency } from "@/lib/format";
 import { MetricCard } from "@/components/metric-card";
 import { StatusBadge } from "@/components/status-badge";
 
@@ -19,6 +23,8 @@ export default async function DashboardPage({
     redirect(`/${locale}/login`);
   }
 
+  const counts = await getDashboardCounts(canRecordSales(profile));
+
   return (
     <div className="space-y-6">
       <div>
@@ -30,12 +36,41 @@ export default async function DashboardPage({
         </p>
       </div>
 
-      {/* KPI placeholders — wired to real data in M1–M6 */}
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <MetricCard label={t("todayAppointments")} value="—" hint={t("comingSoon")} />
-        <MetricCard label={t("dueFollowups")} value="—" hint={t("comingSoon")} />
-        <MetricCard label={t("newPatients")} value="—" hint={t("comingSoon")} />
-        <MetricCard label={t("monthRevenue")} value="—" hint={t("comingSoon")} />
+        <Link href="/appointments" className="block">
+          <MetricCard
+            label={t("todayAppointments")}
+            value={<span dir="ltr">{counts.todayAppointments}</span>}
+            className="h-full transition-colors hover:bg-accent/50"
+          />
+        </Link>
+        <Link href="/followups" className="block">
+          <MetricCard
+            label={t("dueFollowups")}
+            value={<span dir="ltr">{counts.dueFollowups}</span>}
+            className="h-full transition-colors hover:bg-accent/50"
+          />
+        </Link>
+        <Link href="/patients" className="block">
+          <MetricCard
+            label={t("newPatients")}
+            value={<span dir="ltr">{counts.newPatientsThisMonth}</span>}
+            className="h-full transition-colors hover:bg-accent/50"
+          />
+        </Link>
+        {counts.monthRevenue !== null ? (
+          <Link href="/sales" className="block">
+            <MetricCard
+              label={t("monthRevenue")}
+              value={
+                <span dir="ltr" className="text-brand-800">
+                  {formatCurrency(counts.monthRevenue, locale)}
+                </span>
+              }
+              className="h-full transition-colors hover:bg-accent/50"
+            />
+          </Link>
+        ) : null}
       </div>
     </div>
   );

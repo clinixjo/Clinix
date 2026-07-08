@@ -361,6 +361,54 @@
       "package": "Hello {name} 🌿\nA gentle reminder that you have {count} sessions remaining in your package at {clinic}. We'd be delighted to schedule your next session at a time that suits you. 💐"
     }
   },
+  "reports": {
+    "title": "Reports",
+    "subtitle": "Your clinic's performance at a glance — revenue, retention, and the channels that bring patients in.",
+    "periods": {
+      "30d": "30 days",
+      "90d": "90 days",
+      "12m": "12 months"
+    },
+    "kpis": {
+      "revenue": "Total revenue",
+      "vsPrev": "{value} vs previous period",
+      "noShowRate": "No-show rate",
+      "noShowHint": "{noShow} no-shows of {total} finished appointments",
+      "newPatients": "New patients",
+      "returningRate": "Returning rate",
+      "returningHint": "{returning} returning, {fresh} new among this period's visitors",
+      "noData": "No data in this period"
+    },
+    "charts": {
+      "revenueTrend": "Monthly revenue (last 12 months)",
+      "topServices": "Top services by revenue",
+      "revenue": "Revenue",
+      "volume": "Sessions",
+      "volumeShort": "{count} sessions"
+    },
+    "sources": {
+      "title": "Patient sources",
+      "empty": "No new patients in this period",
+      "unknown": "Not specified"
+    },
+    "practitioners": {
+      "title": "Practitioner performance",
+      "items": "{count, plural, one {# session} other {# sessions}}",
+      "empty": "No practitioner-attributed sales in this period"
+    },
+    "lifecycle": {
+      "title": "Treatment lifecycle health",
+      "funnel": "Follow-ups this period",
+      "pending": "Awaiting contact",
+      "contacted": "Contacted",
+      "booked": "Converted to booking",
+      "dismissed": "Dismissed",
+      "conversion": "Post-contact conversion",
+      "activePackages": "Active packages",
+      "outstandingSessions": "Sessions owed to patients",
+      "messagesSent": "Messages sent"
+    }
+  },
   "dashboard": {
     "title": "Dashboard",
     "welcome": "Welcome {name}",
