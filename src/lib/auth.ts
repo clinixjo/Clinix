@@ -13,7 +13,12 @@ export type Profile = {
     id: string;
     name: string;
     slug: string;
-    settings: { practitioner_can_edit?: boolean } & Record<string, unknown>;
+    logo_url: string | null;
+    subscription_status: string;
+    settings: {
+      practitioner_can_edit?: boolean;
+      onboarded?: boolean;
+    } & Record<string, unknown>;
   };
 };
 
@@ -44,7 +49,7 @@ export const getProfile = cache(async (): Promise<Profile | null> => {
 
   const { data } = await supabase
     .from("users")
-    .select("id, clinic_id, role, name, email, is_active, clinic:clinics(id, name, slug, settings)")
+    .select("id, clinic_id, role, name, email, is_active, clinic:clinics(id, name, slug, logo_url, subscription_status, settings)")
     .eq("id", user.id)
     .single();
 

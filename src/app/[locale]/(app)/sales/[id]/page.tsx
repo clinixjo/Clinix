@@ -38,6 +38,7 @@ export default async function InvoicePage({
   const format = await getFormatter();
   const BackIcon = dirFor(locale) === "rtl" ? ArrowRight : ArrowLeft;
   const invoiceNo = `#${sale.id.slice(0, 8).toUpperCase()}`;
+  const taxId = (profile.clinic.settings as { tax_id?: string | null }).tax_id ?? null;
 
   return (
     <div className="mx-auto max-w-xl space-y-4">
@@ -70,6 +71,11 @@ export default async function InvoicePage({
                 {profile.clinic.name}
               </p>
               <p className="text-sm text-muted-foreground">{t("invoice.title")}</p>
+              {taxId ? (
+                <p dir="ltr" className="text-xs text-muted-foreground">
+                  {t("invoice.taxId")}: {taxId}
+                </p>
+              ) : null}
             </div>
             <StatusBadge variant={saleStatusVariant[sale.status]}>
               {t(`statuses.${sale.status}`)}

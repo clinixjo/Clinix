@@ -19,6 +19,13 @@ export default async function AppLayout({
     redirect(`/${locale}/login`);
   }
 
+  // First-run: route managers of an un-onboarded clinic to the wizard.
+  // /onboarding lives outside this route group, so no redirect loop.
+  const isManager = profile.role === "owner" || profile.role === "admin";
+  if (isManager && profile.clinic.settings.onboarded !== true) {
+    redirect(`/${locale}/onboarding`);
+  }
+
   const canSeeSales =
     profile.role !== "practitioner" ||
     profile.clinic.settings.practitioner_can_edit === true;

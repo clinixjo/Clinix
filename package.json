@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:isolation": "vitest run tests/tenant-isolation.test.ts tests/medical-notes-rls.test.ts tests/services-packages-rls.test.ts tests/appointments-rls.test.ts tests/sales-rls.test.ts tests/followups-rls.test.ts tests/reports-rls.test.ts",
+    "test:isolation": "vitest run tests/tenant-isolation.test.ts tests/medical-notes-rls.test.ts tests/services-packages-rls.test.ts tests/appointments-rls.test.ts tests/sales-rls.test.ts tests/followups-rls.test.ts tests/reports-rls.test.ts tests/settings-rls.test.ts",
     "seed:dev": "node scripts/seed-dev.ts"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "recharts": "^3.9.2",
+    "server-only": "^0.0.1",
     "shadcn": "^4.13.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.6.0",

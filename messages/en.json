@@ -304,6 +304,7 @@
     "invoice": {
       "title": "Invoice",
       "number": "Invoice no.",
+      "taxId": "Tax ID",
       "billedTo": "Billed to",
       "issuedOn": "Issued on",
       "servedBy": "Served by",
@@ -407,6 +408,127 @@
       "activePackages": "Active packages",
       "outstandingSessions": "Sessions owed to patients",
       "messagesSent": "Messages sent"
+    }
+  },
+  "onboarding": {
+    "welcome": "Welcome to Clinics System 🌿",
+    "intro": "Let's set up your clinic in a few minutes. You can change anything later in Settings.",
+    "stepOf": "Step {current} of {total}",
+    "next": "Next",
+    "back": "Back",
+    "skip": "Skip for now",
+    "finish": "Finish setup",
+    "finishing": "Finishing…",
+    "steps": {
+      "clinic": "Clinic info",
+      "hours": "Business hours",
+      "service": "First service",
+      "staff": "Invite your team"
+    },
+    "clinic": {
+      "title": "Let's start with your clinic",
+      "hint": "Your name and logo appear across the app and on invoices."
+    },
+    "hours": {
+      "title": "When do you see patients?",
+      "hint": "Used later to prevent bookings outside working hours."
+    },
+    "service": {
+      "title": "Add your first service",
+      "hint": "You can add more later. Skip if you'd rather set this up afterward."
+    },
+    "staff": {
+      "title": "Invite your team",
+      "hint": "Create an account for your first staff member, or skip and add them later."
+    },
+    "done": {
+      "title": "Your clinic is ready! 🎉",
+      "subtitle": "Everything's set up. You're good to go.",
+      "goToDashboard": "Go to dashboard"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "nav": {
+      "clinic": "Clinic",
+      "staff": "Team"
+    },
+    "saved": "Saved",
+    "clinic": {
+      "profile": "Clinic profile",
+      "name": "Clinic name",
+      "logo": "Clinic logo",
+      "uploadLogo": "Upload logo",
+      "changeLogo": "Change logo",
+      "logoHint": "PNG or JPG, up to 2 MB.",
+      "taxId": "Tax ID",
+      "taxIdHint": "Shown on invoices.",
+      "contactPhone": "Clinic phone",
+      "contactEmail": "Clinic email",
+      "save": "Save changes",
+      "nameRequired": "Clinic name is required",
+      "saveFailed": "Could not save — please try again"
+    },
+    "hours": {
+      "title": "Business hours",
+      "hint": "The days and times you see patients.",
+      "open": "Open",
+      "close": "Close",
+      "closed": "Closed",
+      "save": "Save hours"
+    },
+    "permissions": {
+      "title": "Practitioner permissions",
+      "practitionerCanEdit": "Let practitioners record services & sales",
+      "onHint": "Practitioners can record services, sales, and medical notes themselves.",
+      "offHint": "Practitioners view their appointments and patients and add medical notes only — reception handles data entry.",
+      "note": "Medical notes stay restricted to the practitioner and owner in all cases."
+    },
+    "subscription": {
+      "title": "Subscription",
+      "status": "Status",
+      "trial": "Trial",
+      "active": "Active",
+      "suspended": "Suspended",
+      "cancelled": "Cancelled",
+      "hint": "To manage your subscription, contact the Clinics System team."
+    }
+  },
+  "staff": {
+    "title": "Clinic team",
+    "subtitle": "Invite colleagues, assign roles, and enable or disable access instantly.",
+    "count": "{count, plural, one {# member} other {# members}}",
+    "invite": "Invite member",
+    "you": "You",
+    "inactive": "Disabled",
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "roles": {
+      "owner": "Owner",
+      "admin": "Admin",
+      "receptionist": "Receptionist",
+      "practitioner": "Practitioner"
+    },
+    "inviteDialog": {
+      "title": "Invite a new member",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "selectRole": "Select a role…",
+      "submit": "Create account",
+      "creating": "Creating…",
+      "invalid": "Enter a valid name and email",
+      "emailInUse": "This email is already in use",
+      "failed": "Could not create the account — please try again"
+    },
+    "credentials": {
+      "title": "Account created 🎉",
+      "hint": "Share these sign-in details with the member. The password won't be shown again.",
+      "email": "Email",
+      "password": "Temporary password",
+      "copied": "Copied",
+      "copy": "Copy",
+      "done": "Done"
     }
   },
   "dashboard": {
