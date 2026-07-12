@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/auth";
+import { logAudit } from "@/lib/audit";
 import { canRecordSales, type PaymentMethod, type SaleStatus } from "@/lib/sales";
 
 /** Error values are translation keys under `sales.errors`. */
@@ -102,7 +103,17 @@ export async function setSaleStatus(
 export async function deleteSale(saleId: string): Promise<void> {
   const supabase = await createClient();
   // RLS: only managers can delete a sale.
-  await supabase.from("sales").delete().eq("id", saleId);
+  const { data } = await supabase
+    .from("sales")
+    .delete()
+    .eq("id", saleId)
+    .select("id, total, status");
+  if (data?.length) {
+    await logAudit("sale_deleted", "sales", saleId, {
+      total: data[0].total,
+      status: data[0].status,
+    });
+  }
   revalidatePath("/[locale]/sales", "page");
   redirect(`/${await getLocale()}/sales`);
 }

@@ -104,9 +104,27 @@
       "notFound": "Patient not found",
       "deletePatient": "Delete patient",
       "deleteConfirmTitle": "Permanently delete this patient?",
-      "deleteConfirmText": "{name}'s file and all related data (visits, appointments, notes) will be deleted. This cannot be undone.",
+      "deleteConfirmText": "{name}'s file and all related data (visits, appointments, notes) will be permanently deleted. This cannot be undone and will be logged for audit.",
       "deleteConfirm": "Yes, delete",
-      "backToList": "Back to patients"
+      "backToList": "Back to patients",
+      "deleteNote": "Delete note",
+      "deleteNoteConfirmTitle": "Delete this medical note?",
+      "deleteNoteConfirmText": "This cannot be undone and will be logged for audit.",
+      "deleteNoteConfirm": "Yes, delete"
+    },
+    "dataRights": {
+      "title": "Data & privacy",
+      "hint": "Compliance tools for the patient's data rights.",
+      "export": "Download patient archive",
+      "exportHint": "A JSON file with all of the patient's data and history.",
+      "purge": "Anonymize personal data",
+      "purgeHint": "Erases personal data while keeping financial records for compliance.",
+      "purgedBadge": "Data anonymized",
+      "purgedOn": "Data anonymized on {date}",
+      "purgeConfirmTitle": "Anonymize this patient's data?",
+      "purgeConfirmText": "Personal data (name, phone, email, medical notes) will be permanently erased while financial records are kept. This cannot be undone and will be logged for audit.",
+      "purgeConfirm": "Yes, anonymize",
+      "purging": "Working…"
     }
   },
   "services": {
@@ -451,7 +469,8 @@
     "title": "Settings",
     "nav": {
       "clinic": "Clinic",
-      "staff": "Team"
+      "staff": "Team",
+      "audit": "Audit log"
     },
     "saved": "Saved",
     "clinic": {
@@ -529,6 +548,24 @@
       "copied": "Copied",
       "copy": "Copy",
       "done": "Done"
+    }
+  },
+  "audit": {
+    "title": "Audit log",
+    "subtitle": "A transparent record of every sensitive clinic operation — for medical and financial compliance.",
+    "empty": "No operations logged yet",
+    "system": "System",
+    "actions": {
+      "medical_note_added": "Medical note added",
+      "medical_note_deleted": "Medical note deleted",
+      "staff_activated": "Staff activated",
+      "staff_deactivated": "Staff deactivated",
+      "staff_role_changed": "Staff role changed",
+      "sale_status_changed": "Sale status changed",
+      "sale_deleted": "Sale deleted",
+      "patient_deleted": "Patient deleted",
+      "patient_purged": "Patient data anonymized",
+      "patient_exported": "Patient data exported"
     }
   },
   "dashboard": {

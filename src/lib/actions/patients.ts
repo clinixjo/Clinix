@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/auth";
+import { logAudit } from "@/lib/audit";
 import { canAccessMedicalNotes, CONSENT_VERSION } from "@/lib/patients";
 
 /** Error values are translation keys under `patients.form`. */
@@ -124,10 +125,47 @@ export async function updatePatient(
 export async function deletePatient(patientId: string): Promise<void> {
   const supabase = await createClient();
   // RLS: only owner/admin rows match; others delete nothing.
-  await supabase.from("patients").delete().eq("id", patientId);
+  const { data } = await supabase
+    .from("patients")
+    .delete()
+    .eq("id", patientId)
+    .select("id");
+  if (data?.length) {
+    await logAudit("patient_deleted", "patients", patientId);
+  }
 
   revalidatePath("/[locale]/patients", "page");
   redirect(`/${await getLocale()}/patients`);
+}
+
+/** Right-to-erasure: anonymize PII, keep financial records (manager only). */
+export async function purgePatient(patientId: string): Promise<void> {
+  const supabase = await createClient();
+  // purge_patient() enforces manager + clinic scope and logs the audit entry.
+  await supabase.rpc("purge_patient", { p_patient_id: patientId });
+  revalidatePath(`/[locale]/patients/${patientId}`, "page");
+  redirect(`/${await getLocale()}/patients/${patientId}`);
+}
+
+export async function deleteMedicalNote(
+  noteId: string,
+  patientId: string
+): Promise<void> {
+  const profile = await getProfile();
+  if (!profile || !canAccessMedicalNotes(profile.role)) return;
+
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from("patient_medical_notes")
+    .delete()
+    .eq("id", noteId)
+    .select("id");
+  if (data?.length) {
+    await logAudit("medical_note_deleted", "patient_medical_notes", noteId, {
+      patient_id: patientId,
+    });
+  }
+  revalidatePath(`/[locale]/patients/${patientId}`, "page");
 }
 
 export type MedicalNoteState = { error: "saveFailed" } | null;

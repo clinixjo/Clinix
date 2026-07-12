@@ -29,6 +29,7 @@ export type Patient = PatientListItem & {
   notes: string | null;
   consent_at: string | null;
   consent_version: string | null;
+  purged_at: string | null;
 };
 
 export type MedicalNote = {
@@ -72,7 +73,7 @@ export async function getPatient(id: string): Promise<Patient | null> {
   const { data } = await supabase
     .from("patients")
     .select(
-      "id, name, dob, gender, whatsapp, phone, email, source, notes, consent_at, consent_version, created_at"
+      "id, name, dob, gender, whatsapp, phone, email, source, notes, consent_at, consent_version, purged_at, created_at"
     )
     .eq("id", id)
     .maybeSingle();

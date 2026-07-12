@@ -1,6 +1,6 @@
 import { getFormatter, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound, redirect } from "next/navigation";
-import { ArrowLeft, ArrowRight, Pencil, Receipt, ShieldCheck, ShieldAlert, Stethoscope } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, EyeOff, Pencil, Receipt, ShieldCheck, ShieldAlert, Stethoscope } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { dirFor } from "@/i18n/routing";
 import { getProfile } from "@/lib/auth";
@@ -26,6 +26,8 @@ import { ListRow, ListRows } from "@/components/list-row";
 import { UserAvatar } from "@/components/user-avatar";
 import { DeletePatientButton } from "@/components/delete-patient-button";
 import { MedicalNoteForm } from "@/components/medical-note-form";
+import { ConfirmDeleteButton } from "@/components/confirm-delete-button";
+import { purgePatient, deleteMedicalNote } from "@/lib/actions/patients";
 
 export default async function PatientProfilePage({
   params,
@@ -43,6 +45,7 @@ export default async function PatientProfilePage({
 
   const t = await getTranslations("patients");
   const tSales = await getTranslations("sales");
+  const tCommon = await getTranslations("common");
   const format = await getFormatter();
   const showMedical = canAccessMedicalNotes(profile.role);
   const isManager = profile.role === "owner" || profile.role === "admin";
@@ -92,7 +95,16 @@ export default async function PatientProfilePage({
         <UserAvatar name={patient.name} className="size-12" />
         <div className="min-w-0 flex-1">
           <h1 className="truncate text-[22px] font-semibold">{patient.name}</h1>
-          {patient.consent_at ? (
+          {patient.purged_at ? (
+            <StatusBadge variant="neutral">
+              <EyeOff className="size-3" />
+              {t("dataRights.purgedOn", {
+                date: format.dateTime(new Date(patient.purged_at), {
+                  dateStyle: "medium",
+                }),
+              })}
+            </StatusBadge>
+          ) : patient.consent_at ? (
             <StatusBadge variant="success">
               <ShieldCheck className="size-3" />
               {t("consent.consentedOn", {
@@ -186,19 +198,31 @@ export default async function PatientProfilePage({
               ) : (
                 <ListRows>
                   {medicalNotes.map((note) => (
-                    <ListRow key={note.id} className="flex-col items-start gap-1">
-                      <p className="whitespace-pre-wrap text-sm">{note.note}</p>
-                      <p className="text-xs text-muted-foreground">
-                        {note.author
-                          ? `${t("profile.noteBy", { name: note.author.name })} · `
-                          : ""}
-                        {t("profile.addedOn", {
-                          date: format.dateTime(new Date(note.created_at), {
-                            dateStyle: "medium",
-                            timeStyle: "short",
-                          }),
-                        })}
-                      </p>
+                    <ListRow key={note.id} className="items-start gap-2">
+                      <div className="min-w-0 flex-1">
+                        <p className="whitespace-pre-wrap text-sm">{note.note}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {note.author
+                            ? `${t("profile.noteBy", { name: note.author.name })} · `
+                            : ""}
+                          {t("profile.addedOn", {
+                            date: format.dateTime(new Date(note.created_at), {
+                              dateStyle: "medium",
+                              timeStyle: "short",
+                            }),
+                          })}
+                        </p>
+                      </div>
+                      <ConfirmDeleteButton
+                        action={deleteMedicalNote.bind(null, note.id, patient.id)}
+                        triggerLabel={t("profile.deleteNote")}
+                        title={t("profile.deleteNoteConfirmTitle")}
+                        description={t("profile.deleteNoteConfirmText")}
+                        confirmLabel={t("profile.deleteNoteConfirm")}
+                        cancelLabel={tCommon("cancel")}
+                        size="icon"
+                        iconOnly
+                      />
                     </ListRow>
                   ))}
                 </ListRows>
@@ -242,6 +266,39 @@ export default async function PatientProfilePage({
             )}
           </CardContent>
         </Card>
+
+        {/* Data & privacy (compliance) — owner/admin only */}
+        {isManager ? (
+          <Card className="lg:col-span-2 border-brand-100 bg-brand-50/30">
+            <CardHeader>
+              <CardTitle className="text-base">{t("dataRights.title")}</CardTitle>
+              <p className="text-sm text-muted-foreground">{t("dataRights.hint")}</p>
+            </CardHeader>
+            <CardContent className="flex flex-wrap items-center gap-3">
+              <Button variant="secondary" size="sm" asChild>
+                <a href={`/api/patients/${patient.id}/export`} download>
+                  <Download className="size-4" />
+                  {t("dataRights.export")}
+                </a>
+              </Button>
+              {!patient.purged_at ? (
+                <ConfirmDeleteButton
+                  action={purgePatient.bind(null, patient.id)}
+                  triggerLabel={t("dataRights.purge")}
+                  title={t("dataRights.purgeConfirmTitle")}
+                  description={t("dataRights.purgeConfirmText")}
+                  confirmLabel={t("dataRights.purgeConfirm")}
+                  cancelLabel={tCommon("cancel")}
+                />
+              ) : (
+                <StatusBadge variant="neutral">
+                  <EyeOff className="size-3" />
+                  {t("dataRights.purgedBadge")}
+                </StatusBadge>
+              )}
+            </CardContent>
+          </Card>
+        ) : null}
       </div>
     </div>
   );
